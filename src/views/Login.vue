@@ -59,6 +59,7 @@
         </div>
       </el-container>
     </el-form>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -112,7 +113,9 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("submit!");
+          //alert("submit!");
+          this.$message({message: 'Name: $(this.loginForm.name) ;  password: $(this.loginForm.checkPass)'});
+          this.$router.push("/index");
         } else {
           console.log("error submit!!");
           return false;
